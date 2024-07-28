@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   postgresDb:
-    image: postgres:15.6-alpine
+    image: postgres
     container_name: bookstore_db
     restart: always
     ports:
