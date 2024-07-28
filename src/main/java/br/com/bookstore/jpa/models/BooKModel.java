@@ -6,6 +6,7 @@ import java.util.Set;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,6 +18,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -51,5 +53,10 @@ public class BooKModel implements Serializable {
     inverseJoinColumns = @JoinColumn(name="author_id")
   )
   private Set<AuthorModel> authors;
+
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "review_id")
+  private ReviewModel review;
 
 }
