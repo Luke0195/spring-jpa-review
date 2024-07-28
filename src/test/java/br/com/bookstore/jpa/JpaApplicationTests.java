@@ -1,4 +1,4 @@
-package br.com.boostore.jpa;
+package br.com.bookstore.jpa;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringBootConfiguration;
